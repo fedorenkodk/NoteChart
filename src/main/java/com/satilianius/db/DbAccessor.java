@@ -1,4 +1,4 @@
-package com.nes.db;
+package com.satilianius.db;
 
 
 import java.sql.Connection;
@@ -6,13 +6,13 @@ import java.sql.DriverManager;
 
 public class DbAccessor {
 
-    private static final String dbPath = "NotesDb.db";
+    private static final String dbName = "notes_db";
     public static void createDb() {
-        Connection connection = null;
-
+       Connection connection = null;
         try {
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection(String.format("jdbc:sqlite:{}", dbPath);
+        Class.forName("org.h2.Driver");
+        connection = DriverManager.getConnection(String.format("jdbc:h2:./%s", dbName), "Satilianius", "H2OPassword");
+
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             return;
@@ -22,6 +22,6 @@ public class DbAccessor {
 
     public static void initialiseDb() {
         // if db is not found
-        // createDb()
+        createDb();
     }
 }

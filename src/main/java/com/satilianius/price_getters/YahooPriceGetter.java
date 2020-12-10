@@ -1,4 +1,4 @@
-package com.nes.price_getters;
+package com.satilianius.price_getters;
 
 import java.io.IOException;
 import java.net.URI;

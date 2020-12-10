@@ -1,4 +1,4 @@
-package com.nes.models;
+package com.satilianius.models;
 
 import lombok.Data;
 

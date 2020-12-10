@@ -18,7 +18,5 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.16'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
 
-    implementation 'org.xerial:sqlite-jdbc:3.32.3.2'
-
-    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.4.24.Final'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
 }
