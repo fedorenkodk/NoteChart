@@ -9,14 +9,31 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    junitJupiterVersion = '5.7.0'
+    lombokVersion = '1.18.16'
+    slf4jVersion = '1.7.30'
+    slf4jSimpleVersion = '1.7.30'
+    h2Version = '1.4.200'
+    hibernateVersion = '5.4.25.Final'
+    hibernateAnnotationsVersion = '3.5.6-Final'
+    hibernateC3p0Version = '5.4.25.Final'
+
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitJupiterVersion}"
 
-    compileOnly 'org.projectlombok:lombok:1.18.16'
-    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-    testCompileOnly 'org.projectlombok:lombok:1.18.16'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: "${slf4jSimpleVersion}"
 
-    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+    compile group: 'com.h2database', name: 'h2', version: "${h2Version}"
+
+    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: "${hibernateVersion}"
+    compile group: 'org.hibernate', name: 'hibernate-c3p0', version: "${hibernateC3p0Version}"
 }
