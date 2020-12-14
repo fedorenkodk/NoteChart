@@ -1,6 +1,6 @@
 package com.satilianius.price_getters;
 
-public enum Interval {
+public enum Range {
     ONE_DAY("1d"),
     FIVE_DAYS("5d"),
     ONE_MONTH("1mo"),
@@ -14,7 +14,7 @@ public enum Interval {
     MAX("max");
 
     public final String endpointString;
-    Interval(String endpointString) {
+    Range(String endpointString) {
        this.endpointString = endpointString;
     }
 }

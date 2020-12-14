@@ -18,7 +18,8 @@ ext {
     hibernateVersion = '5.4.25.Final'
     hibernateAnnotationsVersion = '3.5.6-Final'
     hibernateC3p0Version = '5.4.25.Final'
-
+    jFreeChartVersion = '1.5.1'
+    jacksonVersion = '2.12.0'
 }
 
 dependencies {
@@ -36,4 +37,8 @@ dependencies {
 
     compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: "${hibernateVersion}"
     compile group: 'org.hibernate', name: 'hibernate-c3p0', version: "${hibernateC3p0Version}"
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
+
+    compile group: 'org.jfree', name: 'jfreechart', version: "${jFreeChartVersion}"
 }
