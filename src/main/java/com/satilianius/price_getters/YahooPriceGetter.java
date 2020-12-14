@@ -19,27 +19,28 @@ import java.util.List;
 
 public class YahooPriceGetter {
 
-    public static String test() {
+//    public static String test() {
+//
+//        HttpRequest request = HttpRequest.newBuilder()
+//            .uri(URI.create("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&symbol=DBK.DE&range=5d"))
+//            .header("x-rapidapi-key", "7fbad85a5cmsh7c115919f64a4bdp1f004ajsn4c3510edf43f")
+//            .header("x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com")
+//            .method("GET", HttpRequest.BodyPublishers.noBody())
+//            .build();
+//
+//        try {
+//            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+//            return response.body();
+//
+//        } catch (IOException | java.lang.InterruptedException e) {
+//            System.out.println("Couldn't reach API");
+//            return null;
+//        }
+//    }
 
-        HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?interval=1d&symbol=DBK.DE&range=5d"))
-            .header("x-rapidapi-key", "7fbad85a5cmsh7c115919f64a4bdp1f004ajsn4c3510edf43f")
-            .header("x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com")
-            .method("GET", HttpRequest.BodyPublishers.noBody())
-            .build();
-
-        try {
-            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-            return response.body();
-
-        } catch (IOException | java.lang.InterruptedException e) {
-            System.out.println("Couldn't reach API");
-            return null;
-        }
-    }
-
-    public List<Price> getClosingPrices (String symbol, ZonedDateTime start, ZonedDateTime end, Interval interval) {
+    public List<Price> getPrices(String symbol, ZonedDateTime start, ZonedDateTime end, Interval interval) {
         String response = getResponse(symbol, start, end, interval);
+        //String response =
         writeResponseToFile(response);
         QuoteHistory history = getPricesFromResponse(response);
         return history != null ? history.getPrices() : null;

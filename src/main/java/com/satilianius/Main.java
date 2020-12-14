@@ -24,7 +24,7 @@ public class Main {
         System.out.println("Querying the note history data");
         YahooPriceGetter priceGetter = new YahooPriceGetter();
         note.getSymbols().stream()
-                .map(symbol -> priceGetter.getClosingPrices(
+                .map(symbol -> priceGetter.getPrices(
                         symbol,
                         note.getStartTime(),
                         note.getEndTime(),
