@@ -1,24 +1,20 @@
 package com.satilianius.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.satilianius.deserializers.YahooChartDeserializer;
+import lombok.Data;
 
 import java.util.List;
 
-
+@Data
+@JsonDeserialize(using = YahooChartDeserializer.class)
 public class QuoteHistory {
-    @JsonProperty("chart.result[0].meta.symbol")
     String symbol;
-    @JsonProperty("chart.result[0].meta.timezone")
     String timeZone;
-    @JsonProperty("chart.result[0].timestamps")
     List<Long> timestamps;
-    @JsonProperty("chart.result[0].indicators.quote[0].open")
     List<Double> openPrices;
-    @JsonProperty("chart.result[0].indicators.quote[0].close")
     List<Double> closePrices;
-    @JsonProperty("chart.result[0].indicators.quote[0].high")
     List<Double> highPrices;
-    @JsonProperty("chart.result[0].indicators.quote[0].low")
     List<Double> lowPrices;
 
     List<Price> prices;
@@ -39,5 +35,13 @@ public class QuoteHistory {
             }
         }
         return prices;
+    }
+
+    @Override
+    public String toString() {
+        return "QuoteHistory{" +
+                "symbol='" + symbol + '\'' +
+                ", timeZone='" + timeZone + '\'' +
+                ", close='" + closePrices.toString() + '}';
     }
 }
