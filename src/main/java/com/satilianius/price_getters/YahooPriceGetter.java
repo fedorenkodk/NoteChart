@@ -21,7 +21,7 @@ public class YahooPriceGetter {
 
     public List<Price> getPrices(String symbol, ZonedDateTime start, ZonedDateTime end, Interval interval) {
         String response = getResponse(symbol, start, end, interval);
-        writeResponseToFile(response);
+        // writeResponseToFile(response);
         QuoteHistory history = getPricesFromResponse(response);
         return history != null ? history.getPrices() : null;
     }

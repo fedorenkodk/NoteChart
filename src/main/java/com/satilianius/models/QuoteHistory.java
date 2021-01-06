@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.satilianius.deserializers.YahooChartDeserializer;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,6 +22,7 @@ public class QuoteHistory {
 
     public List<Price> getPrices() {
         if (prices == null) {
+            prices = new ArrayList<>();
             for (int i = 0; i < timestamps.size(); i++) {
                 Price price = new Price();
                 price.setSymbol(symbol);

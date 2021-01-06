@@ -1,6 +1,7 @@
 package com.satilianius.models;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

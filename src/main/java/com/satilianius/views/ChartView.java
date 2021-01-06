@@ -116,7 +116,8 @@ public class ChartView {
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(createControlPanel(), BorderLayout.SOUTH);
 
-        chartPanel = new ChartPanel(getjFreeChart(note));
+        JFreeChart noteChart = getjFreeChart(note);
+        chartPanel = new ChartPanel(noteChart);
         frame.getContentPane().add(chartPanel, BorderLayout.CENTER);
     }
 
